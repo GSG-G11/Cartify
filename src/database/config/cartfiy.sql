@@ -8,6 +8,6 @@ CREATE TABLE "products"(
     "price" DECIMAL,
     "category" VARCHAR(255) NOT NULL,
     "img_url" VARCHAR(255) NOT NULL
-)
+);
 
 COMMIT;
