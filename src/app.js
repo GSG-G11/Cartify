@@ -3,21 +3,23 @@ require('env2')('.env');
 const express = require('express');
 const compression = require('compression');
 const router = require('./routes');
-const { pageNotFound, serverError } = require('./controllers');
+const { serveRoot } = require('./controllers');
 
 const app = express();
 app.disable('etag');
-app.disable('x-powered-by');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(compression());
 
-app.use(express.static(join(__dirname, '..', 'public')));
-
 app.use(router);
-app.use(pageNotFound);
-app.use(serverError);
 
-app.set('port', process.env.PORT || 3000);
+const { NODE_ENV } = process.env;
+
+if (NODE_ENV === 'production') {
+  app.use(express.static(join(__dirname, '..', 'client', 'bulid')));
+  app.get('*', serveRoot);
+}
+
+app.set('port', process.env.PORT || 3001);
 
 module.exports = app;
