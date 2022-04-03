@@ -1,6 +1,7 @@
 const Joi = require('joi');
 
-const addProductSchema = Joi.object({
+const editProductSchema = Joi.object({
+  id: Joi.number().required(),
   title: Joi.string().required().max(255),
   description: Joi.string(),
   category: Joi.string().required().max(255),
@@ -8,5 +9,5 @@ const addProductSchema = Joi.object({
   price: Joi.number().required(),
 });
 
-const addProudctValidation = (dataObject) => addProductSchema.validateAsync(dataObject);
-module.exports = { addProudctValidation };
+const editProductValidation = (dataObject) => editProductSchema.validateAsync(dataObject);
+module.exports = { editProductValidation };
