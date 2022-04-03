@@ -2,7 +2,7 @@ const { join } = require('path');
 require('env2')('.env');
 const express = require('express');
 const compression = require('compression');
-const router = require('./routes');
+const { router } = require('./routes');
 const { serveRoot } = require('./controllers');
 
 const app = express();
