@@ -103,12 +103,37 @@
         .filter_items{
             display: flex;
             align-items: center;
-            justify-content: space-between;
         }
+        
         .filter_label{
-            margin-left: 50px;
+            margin-left: 20px;
+        }
+        .filter_category{
+            margin-right:20px
+        }
+        .card_img{
+            height: 100%;
+            width: 100%;
+            object-fit:cover
         }
 
+        .card{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            padding:20px;
+        }
+
+        .landscape {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .category{
+            color:gray  
+        }
     </style>
 </head>
 <body>
@@ -128,8 +153,8 @@
     <section class="header_section">
         <h1 class="header_title">Our Products</h1>
     <div class="filter_items">
-        <ul>
-            <li ><a href="" class="nav_selected">All</a></li>
+        <ul class="filter_category">
+            <li><a href="" class="nav_selected">All</a></li>
             <li><a href="">Men</a></li>
             <li><a href="">Women</a></li>
             <li><a href="">Children</a></li>
@@ -143,6 +168,41 @@
         <label for="search_filter" class="filter_label">Search item:</label>
         <input class="search" type="text" name="" id="search_filter" placeholder="Search item">
     </div>
+    </section>
+
+    <section class="landscape">
+        <div class="card">
+            <img class="card_img" src="Rectangle 26.png" alt="Image Error">
+            <h2>T-Shirt</h2>
+            <span class="category">Women</span>
+            <h3>30$</h3>
+            <button class="button">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img class="card_img" src="Rectangle 26.png" alt="Image Error">
+            <h2>T-Shirt</h2>
+            <span class="category">Men</span>
+            <h3>30$</h3>
+            <button class="button">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="Rectangle 26.png" alt="Image Error">
+            <h2>T-Shirt</h2>
+            <span class="category">Men</span>
+            <h3>30$</h3>
+            <button class="button">Add to Cart</button>
+        </div>
+
+
+        <div class="card">
+            <img src="Rectangle 26.png" alt="Image Error">
+            <h2>T-Shirt</h2>
+            <span class="category">Children</span>
+            <h3>30$</h3>
+            <button class="button">Add to Cart</button>
+        </div>
     </section>
 
 </body>
