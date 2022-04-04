@@ -55,6 +55,60 @@
         }
 
 
+        /* HEADER */
+        select {
+            width: 150px;
+            padding: 5px 35px 5px 5px;
+            border: 1px solid #ccc;
+            height: 34px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: url(price-tag.png) 96% / 15% no-repeat #eee;
+            }
+
+        .search{
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            height: 34px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .search:focus{
+            outline: none;
+        }
+        a{
+            color:black;
+            text-decoration: none;
+        }
+        a:hover{
+            color: #9057AD;
+        }
+
+        .header_section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .header_title{
+            font-size: 35px;
+            margin-top: 20px;
+        }
+        .filter_items{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .filter_label{
+            margin-left: 50px;
+        }
+
     </style>
 </head>
 <body>
@@ -63,13 +117,33 @@
         <h1 class="logo">Cartify</h1>
         <div>
             <ul>
-                <li class="nav_selected">Home</li>
-                <li>Products</li>
-                <li>Cart</li>
+                <li ><a href="" class="nav_selected">Home</a></li>
+                <li ><a href="">Products</a></li>
+                <li ><a href="">Cart</a></li>
             </ul>
         </div>
         <button class="button">Login</button>
     </nav>
+
+    <section class="header_section">
+        <h1 class="header_title">Our Products</h1>
+    <div class="filter_items">
+        <ul>
+            <li ><a href="" class="nav_selected">All</a></li>
+            <li><a href="">Men</a></li>
+            <li><a href="">Women</a></li>
+            <li><a href="">Children</a></li>
+        </ul>
+        <label for="price_filter" class="filter_label">Filter by price:</label>
+        <select name="price_filter" id="price_filter">
+            <option value="high">High to Low</option>
+            <option value="low">Low to High</option>
+        </select>
+
+        <label for="search_filter" class="filter_label">Search item:</label>
+        <input class="search" type="text" name="" id="search_filter" placeholder="Search item">
+    </div>
+    </section>
 
 </body>
 </html>
