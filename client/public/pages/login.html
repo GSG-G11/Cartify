@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/icon type">
+    <title>Cartify</title>
+
+    <style>
+
+        body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #fff;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            padding: 20px;
+            border-bottom: 5px solid #C1C1C1;
+        }
+        ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        ul li{
+            display: flex;
+            margin-left: 20px;
+            font-size: 25px;
+        }
+        .logo{
+            font-size: 30px;
+        }
+        .logo, .nav_selected{
+            text-decoration: none;
+            color:#9057AD
+        }
+
+        .button {
+            background-color: #9057AD;
+            border: none;
+            color: white;
+            padding:5px 30px;
+            height: 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+
+        /* HEADER */
+        select {
+            width: 20%;
+            padding: 0 20px;
+            border: 1px solid #ccc;
+            height: 34px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: url(clothes-hanger.png) 96% / 10% no-repeat #eee;
+            }
+
+        .input{
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            height: 34px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .input:focus{
+            outline: none;
+        }
+        .nav_links{
+            color: black;
+            text-decoration: none;
+        }
+        .nav_links:hover{
+            color: #9057AD;
+        }
+        .header_section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-left: 40px;
+        }
+        .header_title{
+            font-size: 35px;
+            margin-top: 20px;
+        }
+        textarea{
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea:focus{
+            outline: none;
+        }
+
+        .attr_links{
+            color: #9057AD;
+            text-decoration: none;
+        }
+        .form_button{
+            margin: 20px;
+        }
+ 
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <h1 class="logo">Cartify</h1>
+        <div>
+            <ul>
+                <li ><a href="" class="nav_selected ">Home</a></li>
+                <li ><a href="" class="nav_links">Products</a></li>
+                <li ><a href="" class="nav_links">Cart</a></li>
+            </ul>
+        </div>
+        <button class="button">Login</button>
+    </nav>
+
+    <section class="header_section">
+        <h1>Login Now</h1>
+        <input class="input" type="text" name="" placeholder="username">
+        <input class="input" type="text" name="" placeholder="password">
+        <button class="button form_button">Login</button>
+        <span>Don't have an account <a href="" class="attr_links">create account</a></span>
+    </section>
+
+</body>
+</html>
