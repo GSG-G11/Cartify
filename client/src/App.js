@@ -7,7 +7,15 @@ function App() {
   return (
     <div >
 
-<NavBar/>
+<BrowserRouter>
+      <NavBar></NavBar>
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/cart" element={<Cart/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
+
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
