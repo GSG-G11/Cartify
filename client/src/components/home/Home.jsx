@@ -4,36 +4,45 @@ import Cards from './Cards.jsx';
 
 const items = [
   {
-    id: 0, img: 'this image', title: 'this title', category: 'Children', price: 'this price',
+    id: 0, img: 'this image', title: 'this title', category: 'Children', price: '5',
   },
   {
-    id: 1, img: 'this image 1', title: 'this title 1', category: 'Men', price: 'this price 1',
+    id: 1, img: 'this image 1', title: 'this title 1', category: 'Men', price: '100',
   },
   {
-    id: 2, img: 'this image 2', title: 'this title 2', category: 'Women', price: 'this price 2',
+    id: 2, img: 'this image 2', title: 'this title 2', category: 'Women', price: '20',
   },
   {
-    id: 3, img: 'this image 3', title: 'this title 3', category: 'Men', price: 'this price 3',
+    id: 3, img: 'this image 3', title: 'this title 3', category: 'Men', price: '3',
   },
   {
-    id: 4, img: 'this image 4', title: 'this title 4', category: 'all', price: 'this price 4',
+    id: 4, img: 'this image 4', title: 'this title 4', category: 'Men', price: '4',
   },
   {
-    id: 5, img: 'this image 5', title: 'this title 5', category: 'Women', price: 'this price 5',
+    id: 5, img: 'this image 5', title: 'this title 5', category: 'Women', price: '10',
   },
 ];
 
 class Home extends React.Component {
   state = {
-    category: '',
+    categoryFilter: '',
+    priceFilter: '',
   };
 
   // eslint-disable-next-line class-methods-use-this
-  filterCategory = (event) => {
+  handleCategoryChange = (event) => {
     event.preventDefault();
     const category = event.target.getAttribute('value');
     this.setState({
-      category,
+      categoryFilter: category,
+    });
+  };
+
+  handlePriceChange = (event) => {
+    event.preventDefault();
+    const price = event.target.value;
+    this.setState({
+      priceFilter: price,
     });
   };
 
@@ -56,13 +65,13 @@ class Home extends React.Component {
                 <h1 className="header_title">Our Products</h1>
                 <div className="filter_items">
                     <ul className="filter_category">
-                        <li><a href="" value = {''} className="nav_selected" onClick={this.filterCategory}>All</a></li>
-                        <li><a href="" value = {'Men'} onClick={this.filterCategory}>Men</a></li>
-                        <li><a href="" value = {'Women'} onClick={this.filterCategory}>Women</a></li>
-                        <li><a href="" value = {'Children'} onClick={this.filterCategory}>Children</a></li>
+                        <li><a href="" value = {''} className="nav_selected" onClick={this.handleCategoryChange}>All</a></li>
+                        <li><a href="" value = {'Men'} onClick={this.handleCategoryChange}>Men</a></li>
+                        <li><a href="" value = {'Women'} onClick={this.handleCategoryChange}>Women</a></li>
+                        <li><a href="" value = {'Children'} onClick={this.handleCategoryChange}>Children</a></li>
                     </ul>
                     <label htmlFor="price_filter" className="filter_label">Filter by price:</label>
-                    <select name="price_filter" id="price_filter">
+                    <select selected={this.state.price} name="price_filter" id="price_filter" onChange={this.handlePriceChange}>
                         <option value="high">High to Low</option>
                         <option value="low">Low to High</option>
                     </select>
@@ -72,7 +81,7 @@ class Home extends React.Component {
                 </div>
             </section>
                 <Cards list={
-                    this.state.category === '' ? items : items.filter((item) => item.category === this.state.category)
+                   this.state.priceFilter === 'low' ? items.sort((a, b) => parseFloat(a.price) - parseFloat(b.price)) : items.sort((b, a) => parseFloat(a.price) - parseFloat(b.price))
                 } />
         </div>
     );
