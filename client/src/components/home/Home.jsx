@@ -25,7 +25,6 @@ const items = [
 
 class Home extends React.Component {
   state = {
-    filteredData: [],
     categoryFilter: '',
     priceFilter: '',
     searchFilter: '',
@@ -56,27 +55,15 @@ class Home extends React.Component {
   };
 
   filterItems = () => {
-    // Category Filtering
-    const { categoryFilter, priceFilter, searchFilter } = this.state;
-    if (categoryFilter === '') {
-      return items;
-    }
-    if (categoryFilter) {
-      return items.filter((item) => item.category === categoryFilter);
-    }
-    // Price Filtering
+    const { categoryFilter, searchFilter, priceFilter } = this.state;
+    const filteredArray = (items.filter((item) => (categoryFilter === '' || categoryFilter === item.category)
+    && item.title.toLowerCase().includes(searchFilter.toLowerCase())));
     if (priceFilter === 'low') {
-      return items.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      return filteredArray.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
     } if (priceFilter === 'high') {
-      return items.sort((b, a) => parseFloat(a.price) - parseFloat(b.price));
+      return filteredArray.sort((b, a) => parseFloat(a.price) - parseFloat(b.price));
     }
-    // Search Filtering
-    if (searchFilter === '') {
-      return items;
-    } if (searchFilter) {
-      return items.filter((item) => item.title.toLowerCase().includes(searchFilter.toLowerCase()));
-    }
-    return items;
+    return filteredArray;
   };
 
   render() {
@@ -104,6 +91,7 @@ class Home extends React.Component {
                     </ul>
                     <label htmlFor="price_filter" className="filter_label">Filter by price:</label>
                     <select selected={this.state.price} name="price_filter" id="price_filter" onChange={this.handlePriceChange}>
+                        <option value="">$$$</option>
                         <option value="high">High to Low</option>
                         <option value="low">Low to High</option>
                     </select>
@@ -112,6 +100,7 @@ class Home extends React.Component {
                     <input className="search" type="text" name="" id="search_filter" placeholder="Search item" onChange={this.handleSearchChange}/>
                 </div>
             </section>
+
                <Cards list={this.filterItems()} />
         </div>
     );
