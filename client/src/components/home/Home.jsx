@@ -25,12 +25,12 @@ const items = [
 
 class Home extends React.Component {
   state = {
+    filteredData: [],
     categoryFilter: '',
     priceFilter: '',
     searchFilter: '',
   };
 
-  // eslint-disable-next-line class-methods-use-this
   handleCategoryChange = (event) => {
     event.preventDefault();
     const category = event.target.getAttribute('value');
@@ -47,13 +47,36 @@ class Home extends React.Component {
     });
   };
 
-  // eslint-disable-next-line class-methods-use-this
   handleSearchChange = (event) => {
     event.preventDefault();
     const input = event.target.value;
     this.setState({
       searchFilter: input,
     });
+  };
+
+  filterItems = () => {
+    // Category Filtering
+    const { categoryFilter, priceFilter, searchFilter } = this.state;
+    if (categoryFilter === '') {
+      return items;
+    }
+    if (categoryFilter) {
+      return items.filter((item) => item.category === categoryFilter);
+    }
+    // Price Filtering
+    if (priceFilter === 'low') {
+      return items.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+    } if (priceFilter === 'high') {
+      return items.sort((b, a) => parseFloat(a.price) - parseFloat(b.price));
+    }
+    // Search Filtering
+    if (searchFilter === '') {
+      return items;
+    } if (searchFilter) {
+      return items.filter((item) => item.title.toLowerCase().includes(searchFilter.toLowerCase()));
+    }
+    return items;
   };
 
   render() {
@@ -89,8 +112,7 @@ class Home extends React.Component {
                     <input className="search" type="text" name="" id="search_filter" placeholder="Search item" onChange={this.handleSearchChange}/>
                 </div>
             </section>
-               <Cards list={
-                 items.filter((post) => (this.state.searchFilter === '' ? post : post.title.toLowerCase().includes(this.state.searchFilter.toLowerCase())))} />
+               <Cards list={this.filterItems()} />
         </div>
     );
   }
