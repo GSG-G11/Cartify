@@ -4,7 +4,7 @@ import Cards from './Cards.jsx';
 
 const items = [
   {
-    id: 0, img: 'this image', title: 'this title', category: 'Children', price: '5',
+    id: 0, img: 'this image', title: 'Baby Pijamas for Men', category: 'Children', price: '5',
   },
   {
     id: 1, img: 'this image 1', title: 'this title 1', category: 'Men', price: '100',
@@ -16,10 +16,10 @@ const items = [
     id: 3, img: 'this image 3', title: 'this title 3', category: 'Men', price: '3',
   },
   {
-    id: 4, img: 'this image 4', title: 'this title 4', category: 'Men', price: '4',
+    id: 4, img: 'image 4', title: 'Winter jacket for Men', category: 'Men', price: '4',
   },
   {
-    id: 5, img: 'this image 5', title: 'this title 5', category: 'Women', price: '10',
+    id: 5, img: 'image 5', title: 'T shirt for men', category: 'Women', price: '10',
   },
 ];
 
@@ -27,6 +27,7 @@ class Home extends React.Component {
   state = {
     categoryFilter: '',
     priceFilter: '',
+    searchFilter: '',
   };
 
   // eslint-disable-next-line class-methods-use-this
@@ -47,6 +48,14 @@ class Home extends React.Component {
   };
 
   // eslint-disable-next-line class-methods-use-this
+  handleSearchChange = (event) => {
+    event.preventDefault();
+    const input = event.target.value;
+    this.setState({
+      searchFilter: input,
+    });
+  };
+
   render() {
     return (
         <div>
@@ -77,12 +86,11 @@ class Home extends React.Component {
                     </select>
 
                     <label htmlFor="search_filter" className="filter_label">Search item:</label>
-                    <input className="search" type="text" name="" id="search_filter" placeholder="Search item" />
+                    <input className="search" type="text" name="" id="search_filter" placeholder="Search item" onChange={this.handleSearchChange}/>
                 </div>
             </section>
-                <Cards list={
-                   this.state.priceFilter === 'low' ? items.sort((a, b) => parseFloat(a.price) - parseFloat(b.price)) : items.sort((b, a) => parseFloat(a.price) - parseFloat(b.price))
-                } />
+               <Cards list={
+                 items.filter((post) => (this.state.searchFilter === '' ? post : post.title.toLowerCase().includes(this.state.searchFilter.toLowerCase())))} />
         </div>
     );
   }
