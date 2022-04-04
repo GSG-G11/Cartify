@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/icon type">
+    <title>Cartify</title>
+
+    <style>
+
+        body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #fff;
+        }
+
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            padding: 20px;
+            border-bottom: 5px solid #C1C1C1;
+        }
+        ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        ul li{
+            display: flex;
+            margin-left: 20px;
+            font-size: 25px;
+        }
+        .logo{
+            font-size: 30px;
+        }
+        .logo, .nav_selected{
+            color:#9057AD
+        }
+
+        .button {
+            background-color: #9057AD;
+            border: none;
+            color: white;
+            padding:5px 30px;
+            height: 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+
+        /* HEADER */
+        select {
+            width: 150px;
+            padding: 5px 35px 5px 5px;
+            border: 1px solid #ccc;
+            height: 34px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: url(price-tag.png) 96% / 15% no-repeat #eee;
+            }
+
+        .search{
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            height: 34px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .search:focus{
+            outline: none;
+        }
+        a{
+            color:black;
+            text-decoration: none;
+        }
+        a:hover{
+            color: #9057AD;
+        }
+
+        .header_section{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .header_title{
+            font-size: 35px;
+            margin-top: 20px;
+        }
+        .filter_items{
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter_label{
+            margin-left: 20px;
+        }
+        .filter_category{
+            margin-right:20px
+        }
+        .card_img{
+            height: 100%;
+            width: 100%;
+            object-fit:cover
+        }
+
+        .card{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            padding:20px;
+        }
+
+        .landscape {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .category{
+            color:gray  
+        }
+        .card_button{
+        margin:0 40px 0 40px;
+        border: 2px solid black;
+        background-color: white;
+        color: black;
+        }
+        .card_button:hover{
+        border: 2px solid #9057AD;
+        color:#9057AD;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <h1 class="logo">Cartify</h1>
+        <div>
+            <ul>
+                <li ><a href="" class="nav_selected">Home</a></li>
+                <li ><a href="">Products</a></li>
+                <li ><a href="">Cart</a></li>
+            </ul>
+        </div>
+        <button class="button">Login</button>
+    </nav>
+
+    <section class="header_section">
+        <h1 class="header_title">Our Products</h1>
+    <div class="filter_items">
+        <ul class="filter_category">
+            <li><a href="" class="nav_selected">All</a></li>
+            <li><a href="">Men</a></li>
+            <li><a href="">Women</a></li>
+            <li><a href="">Children</a></li>
+        </ul>
+        <label for="price_filter" class="filter_label">Filter by price:</label>
+        <select name="price_filter" id="price_filter">
+            <option value="high">High to Low</option>
+            <option value="low">Low to High</option>
+        </select>
+
+        <label for="search_filter" class="filter_label">Search item:</label>
+        <input class="search" type="text" name="" id="search_filter" placeholder="Search item">
+    </div>
+    </section>
+
+    <section class="landscape">
+        <div class="card">
+            <img src="Rectangle 26.png" alt="Image Error">
+            <h2>T-Shirt</h2>
+            <span class="category">Children</span>
+            <h3>30$</h3>
+            <div>
+                <button class="card_button button">Edit</button>
+                <button class="card_button button">Delete</button>
+            </div>
+        </div>
+
+         <div class="card">
+            <img src="Rectangle 26.png" alt="Image Error">
+            <h2>T-Shirt</h2>
+            <span class="category">Children</span>
+            <h3>30$</h3>
+            <div>
+                <button class="card_button button">Edit</button>
+                <button class="card_button button">Delete</button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="Rectangle 26.png" alt="Image Error">
+            <h2>T-Shirt</h2>
+            <span class="category">Children</span>
+            <h3>30$</h3>
+            <div>
+                <button class="card_button button">Edit</button>
+                <button class="card_button button">Delete</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="Rectangle 26.png" alt="Image Error">
+            <h2>T-Shirt</h2>
+            <span class="category">Children</span>
+            <h3>30$</h3>
+            <div>
+                <button class="card_button button">Edit</button>
+                <button class="card_button button">Delete</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
