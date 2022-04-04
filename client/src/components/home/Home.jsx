@@ -80,14 +80,15 @@ class Home extends React.Component {
                 </div>
                 <button className="button">Login</button>
             </nav>
+
             <section className="header_section">
                 <h1 className="header_title">Our Products</h1>
                 <div className="filter_items">
                     <ul className="filter_category">
-                        <li><a href="" value = {''} className="nav_selected" onClick={this.handleCategoryChange}>All</a></li>
-                        <li><a href="" value = {'Men'} onClick={this.handleCategoryChange}>Men</a></li>
-                        <li><a href="" value = {'Women'} onClick={this.handleCategoryChange}>Women</a></li>
-                        <li><a href="" value = {'Children'} onClick={this.handleCategoryChange}>Children</a></li>
+                        <li><a href="" value = {''} className={this.state.categoryFilter === '' ? 'nav_selected' : null} onClick={this.handleCategoryChange}>All</a></li>
+                        <li><a href="" className={this.state.categoryFilter === 'Men' ? 'nav_selected' : null} value = {'Men'} onClick={this.handleCategoryChange}>Men</a></li>
+                        <li><a href="" className={this.state.categoryFilter === 'Women' ? 'nav_selected' : null} value = {'Women'} onClick={this.handleCategoryChange}>Women</a></li>
+                        <li><a href="" className={this.state.categoryFilter === 'Children' ? 'nav_selected' : null} value = {'Children'} onClick={this.handleCategoryChange}>Children</a></li>
                     </ul>
                     <label htmlFor="price_filter" className="filter_label">Filter by price:</label>
                     <select selected={this.state.price} name="price_filter" id="price_filter" onChange={this.handlePriceChange}>
@@ -95,14 +96,12 @@ class Home extends React.Component {
                         <option value="high">High to Low</option>
                         <option value="low">Low to High</option>
                     </select>
-
                     <label htmlFor="search_filter" className="filter_label">Search item:</label>
                     <input className="search" type="text" name="" id="search_filter" placeholder="Search item" onChange={this.handleSearchChange}/>
                 </div>
             </section>
-
-               <Cards list={this.filterItems()} />
-        </div>
+        <Cards list={this.filterItems()} />
+    </div>
     );
   }
 }
