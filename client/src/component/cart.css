@@ -1,0 +1,30 @@
+.card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding:20px;
+    border: 1px solid #000;
+}
+
+.landscape {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.category{
+    color:gray  
+}
+.button {
+    background-color: #9057AD;
+    border: none;
+    color: white;
+    padding:5px 30px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    font-size: 20px;
+}
