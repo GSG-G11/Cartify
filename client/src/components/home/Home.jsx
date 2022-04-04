@@ -29,11 +29,13 @@ class Home extends React.Component {
   };
 
   // eslint-disable-next-line class-methods-use-this
-  filterCategory(event) {
+  filterCategory = (event) => {
     event.preventDefault();
-    // this.state.category = event.target;
-    console.log(event.target);
-  }
+    const category = event.target.getAttribute('value');
+    this.setState({
+      category,
+    });
+  };
 
   // eslint-disable-next-line class-methods-use-this
   render() {
@@ -54,10 +56,10 @@ class Home extends React.Component {
                 <h1 className="header_title">Our Products</h1>
                 <div className="filter_items">
                     <ul className="filter_category">
-                        <li><a href="" value = {'all'} className="nav_selected" onClick={this.filterCategory}>All</a></li>
-                        <li><a href="">Men</a></li>
-                        <li><a href="">Women</a></li>
-                        <li><a href="">Children</a></li>
+                        <li><a href="" value = {''} className="nav_selected" onClick={this.filterCategory}>All</a></li>
+                        <li><a href="" value = {'Men'} onClick={this.filterCategory}>Men</a></li>
+                        <li><a href="" value = {'Women'} onClick={this.filterCategory}>Women</a></li>
+                        <li><a href="" value = {'Children'} onClick={this.filterCategory}>Children</a></li>
                     </ul>
                     <label htmlFor="price_filter" className="filter_label">Filter by price:</label>
                     <select name="price_filter" id="price_filter">
