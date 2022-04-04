@@ -1,8 +1,12 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import img from '../image/img.png';
 import './singleCart.css';
 
 function SingleProduct() {
+  const { productId } = useParams();
+  console.log(productId);
+
   return (
         <div>
             <section className="header">
