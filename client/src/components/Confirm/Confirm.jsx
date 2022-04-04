@@ -10,7 +10,7 @@ function Confirm({
       <div className="confirm-container">
           <div className="confirm-msg"><span>{msg}</span></div>
           <div className="btns-container">
-              <button type="button" onClick={action}>Confirm</button>
+              <button type="button" onClick={() => { action(); toggle(); }}>Confirm</button>
               <button type="button" onClick={toggle}>Cancel</button>
           </div>
       </div>
