@@ -57,17 +57,17 @@
 
         /* HEADER */
         select {
-            width: 150px;
-            padding: 5px 35px 5px 5px;
+            width: 20%;
+            padding: 0 20px;
             border: 1px solid #ccc;
             height: 34px;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            background: url(price-tag.png) 96% / 15% no-repeat #eee;
+            background: url(clothes-hanger.png) 96% / 10% no-repeat #eee;
             }
 
-        .search{
+        .input{
             width: 20%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -78,7 +78,7 @@
             box-sizing: border-box;
         }
 
-        .search:focus{
+        .input:focus{
             outline: none;
         }
         a{
@@ -95,45 +95,28 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            margin-left: 40px;
         }
         .header_title{
             font-size: 35px;
             margin-top: 20px;
         }
-        .filter_items{
-            display: flex;
-            align-items: center;
+        textarea{
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
-        
-        .filter_label{
-            margin-left: 20px;
+        textarea:focus{
+            outline: none;
         }
-        .filter_category{
-            margin-right:20px
+        .form_button{
+            margin-top: 20px;
         }
-        .card_img{
-            height: 100%;
-            width: 100%;
-            object-fit:cover
-        }
-
-        .card{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            margin: 10px;
-            padding:20px;
-        }
-
-        .landscape {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .category{
-            color:gray  
-        }
+ 
     </style>
 </head>
 <body>
@@ -151,58 +134,17 @@
     </nav>
 
     <section class="header_section">
-        <h1 class="header_title">Our Products</h1>
-    <div class="filter_items">
-        <ul class="filter_category">
-            <li><a href="" class="nav_selected">All</a></li>
-            <li><a href="">Men</a></li>
-            <li><a href="">Women</a></li>
-            <li><a href="">Children</a></li>
-        </ul>
-        <label for="price_filter" class="filter_label">Filter by price:</label>
-        <select name="price_filter" id="price_filter">
-            <option value="high">High to Low</option>
-            <option value="low">Low to High</option>
+        <h1>Add Product</h1>
+        <input class="input" type="text" name="" placeholder="Product Title">
+        <input class="input" type="text" name="" placeholder="Product Img Url">
+        <input class="input" type="text" name="" placeholder="Product Price">
+        <select name="category">
+            <option value="men">Men</option>
+            <option value="women">Women</option>
+            <option value="children">Children</option>
         </select>
-
-        <label for="search_filter" class="filter_label">Search item:</label>
-        <input class="search" type="text" name="" id="search_filter" placeholder="Search item">
-    </div>
-    </section>
-
-    <section class="landscape">
-        <div class="card">
-            <img src="Rectangle 26.png" alt="Image Error">
-            <h2>T-Shirt</h2>
-            <span class="category">Women</span>
-            <h3>30$</h3>
-            <button class="button">Add to Cart</button>
-        </div>
-
-        <div class="card">
-            <img src="Rectangle 26.png" alt="Image Error">
-            <h2>T-Shirt</h2>
-            <span class="category">Men</span>
-            <h3>30$</h3>
-            <button class="button">Add to Cart</button>
-        </div>
-
-        <div class="card">
-            <img src="Rectangle 26.png" alt="Image Error">
-            <h2>T-Shirt</h2>
-            <span class="category">Men</span>
-            <h3>30$</h3>
-            <button class="button">Add to Cart</button>
-        </div>
-
-
-        <div class="card">
-            <img src="Rectangle 26.png" alt="Image Error">
-            <h2>T-Shirt</h2>
-            <span class="category">Children</span>
-            <h3>30$</h3>
-            <button class="button">Add to Cart</button>
-        </div>
+        <textarea name="description" rows="4" cols="50" placeholder="Product description"></textarea>
+        <button class="button form_button">Add product</button>
     </section>
 
 </body>
