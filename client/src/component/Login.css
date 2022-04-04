@@ -1,13 +1,3 @@
-select {
-    width: 20%;
-    padding: 0 20px;
-    border: 1px solid #ccc;
-    height: 34px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-   /* background: url(clothes-hanger.png) 96% / 10% no-repeat #eee;*/
-    }
 
 .input{
     width: 20%;
