@@ -9,6 +9,7 @@ const items = [
     title: 'Baby Pijamas for Men',
     category: 'Children',
     price: '5',
+    details: 'details',
   },
   {
     id: 1,
@@ -16,6 +17,7 @@ const items = [
     title: 'this title 1',
     category: 'Men',
     price: '100',
+    details: 'details',
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ const items = [
     title: 'this title 2',
     category: 'Women',
     price: '20',
+    details: 'details',
   },
   {
     id: 3,
@@ -30,6 +33,7 @@ const items = [
     title: 'this title 3',
     category: 'Men',
     price: '3',
+    details: 'details',
   },
   {
     id: 4,
@@ -37,6 +41,7 @@ const items = [
     title: 'Winter jacket for Men',
     category: 'Men',
     price: '4',
+    details: 'details',
   },
   {
     id: 5,
@@ -44,6 +49,7 @@ const items = [
     title: 'T shirt for men',
     category: 'Women',
     price: '10',
+    details: 'details',
   },
 ];
 
