@@ -58,7 +58,14 @@ class Home extends React.Component {
     categoryFilter: '',
     priceFilter: '',
     searchFilter: '',
+    products: [],
   };
+
+  componentDidMount() {
+    this.setState({
+      products: items,
+    });
+  }
 
   handleCategoryChange = (event) => {
     event.preventDefault();
@@ -104,8 +111,11 @@ class Home extends React.Component {
   };
 
   render() {
+    const { products } = this.state;
     return (
       <div>
+        {products.length
+          ? <>
         <section className="header_section">
           <h1 className="header_title">Our Products</h1>
           <div className="filter_items">
@@ -189,7 +199,7 @@ class Home extends React.Component {
             />
           </div>
         </section>
-        <Cards list={this.filterItems()} />
+        <Cards list={this.filterItems()} />  </> : <div className="loader"></div>}
       </div>
     );
   }

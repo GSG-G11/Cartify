@@ -120,4 +120,29 @@
     .category{
         color:gray  
     }
-    
+    .loader {
+        display: block;
+        width: 80px;
+        height: 80px;
+        margin: auto;
+      }
+      .loader:after {
+        content: ' ';
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6px solid #9057AD;
+        border-color: #9057AD transparent #9057AD transparent;
+        animation: loader 1.2s linear infinite;
+      }
+      @keyframes loader {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      

@@ -34,6 +34,7 @@ class Cart extends Component {
     const { carts } = this.state;
 
     return (
+
       <div>
         <section className="landscape">
           <button className="button" onClick={this.removeAll}>
