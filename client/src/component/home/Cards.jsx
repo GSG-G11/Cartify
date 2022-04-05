@@ -13,8 +13,8 @@ const Cards = ({ list }) => (
           title={title}
           img={img}
           category={category}
-          price={price}
-          id={id}
+          price={+price}
+          id={+id}
 
         />
       ))
