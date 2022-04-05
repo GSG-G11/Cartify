@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheet/Home.css';
+
 import { useNavigate } from 'react-router-dom';
 import addToCart from './addToCart';
 
@@ -15,10 +15,10 @@ const Card = ({
     <span className="category">{category}</span>
     <h3>{price}</h3>
    {!forCarts ? <button
-      className="button"
+      className="card-btn"
       onClick={() => addToCart(img, title, category, price, details, id)} >
       Add to Cart
-    </button> : <button className="button" onClick={() => DeleteItem(id)}>Delete</button>}
+    </button> : <button className="card-btn" onClick={() => DeleteItem(id)}>Delete</button>}
     <p onClick={() => navigate(
       '/details',
       {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.css';
+
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,15 +24,15 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div>
+      <div className='body'>
 
-        <form className="header_section" onSubmit={this.handleSubmit}>
-          <h1>Login Now</h1>
+        <form className="form-input" onSubmit={this.handleSubmit}>
+          <h1 className='login-title'>LOG IN</h1>
 
           <input className="input"
             type="text" name="username" placeholder="username" value={username} onChange={this.handleChange} required />
           <input className="input" type="text" name="password" placeholder="password" value={password} onChange={this.handleChange} required />
-          <button className="button form_button">Login</button>
+          <button className="button-from-login">Login</button>
 
           <span>Do not have an account <a href="" className="attr_links">create account</a></span>
         </form>

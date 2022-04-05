@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../stylesheet/Home.css';
+
 import Card from './Card.jsx';
 
 const Cards = ({ list }) => (
