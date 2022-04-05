@@ -1,66 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './cart.css';
-import img from '../image/img.png';
+import Card from './home/Card.jsx';
 
-const redirectToSingleProduct = (id) => {
+class Cart extends Component {
+  state = {
+    carts: [],
+  };
 
-};
-function Cart() {
-  const id = 4;
-  return (
-    <section className="landscape">
+  componentDidMount() {
+    const carts = JSON.parse(localStorage.getItem('carts')) || [];
+    this.setState({
+      carts,
+    });
+  }
 
-      <div className="card" onClick={() => redirectToSingleProduct(id)}>
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
+  DeleteItem = (id) => {
+    const { carts } = this.state;
+    const newCarts = carts.filter((item) => item.id !== id);
+    localStorage.setItem('carts', JSON.stringify(newCarts));
+    this.setState({
+      carts: newCarts,
+    });
+  };
 
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
+  removeAll = () => {
+    localStorage.removeItem('carts');
+    this.setState({
+      carts: [],
+    });
+  };
 
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
+  render() {
+    const { carts } = this.state;
 
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
-
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
-
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
+    return (
+      <div>
+        <section className="landscape">
+          <button className="button" onClick={this.removeAll}>buy all</button>
+          {
+            carts.map(({
+              id, title, img, category, price,
+            }) => (
+              <Card key={id}
+                title={title}
+                img={img}
+                category={category}
+                price={price}
+                id={id}
+                forCarts={true}
+                DeleteItem={this.DeleteItem}
+              />
+            ))
+          }
+        </section>
 
       </div>
-
-    </section>
-  );
+    );
+  }
 }
 
 export default Cart;
