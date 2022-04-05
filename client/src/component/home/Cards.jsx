@@ -7,7 +7,7 @@ const Cards = ({ list }) => (
   <section className="landscape">
     {
       list.map(({
-        id, title, img, category, price,
+        id, title, img, category, price, details,
       }) => (
         <Card key={id}
           title={title}
@@ -15,7 +15,7 @@ const Cards = ({ list }) => (
           category={category}
           price={+price}
           id={+id}
-
+          details={details}
 
         />
       ))
