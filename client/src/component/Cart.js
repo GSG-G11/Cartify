@@ -1,65 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './cart.css';
-import { useNavigate } from 'react-router-dom';
-import img from '../image/img.png';
+import Card from './home/Card.jsx';
 
-function Cart() {
-  const navigate = useNavigate();
-  const id = 4;
-  return (
-    <section className="landscape">
+class Cart extends Component {
+  state = {
+    carts: [],
+  };
 
-      <div className="card" onClick={() => navigate(`/product/${id}`)}>
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
+  componentDidMount() {
+    const carts = JSON.parse(localStorage.getItem('carts')) || [];
+    this.setState({
+      carts,
+    });
+  }
+
+  DeleteItem = (id) => {
+    const { carts } = this.state;
+    const newCarts = carts.filter((item) => item.id !== id);
+    localStorage.setItem('carts', JSON.stringify(newCarts));
+    this.setState({
+      carts: newCarts,
+    });
+  };
+
+  removeAll = () => {
+    localStorage.removeItem('carts');
+    this.setState({
+      carts: [],
+    });
+  };
+
+  render() {
+    const { carts } = this.state;
+
+    return (
+      <div>
+        <section className="landscape">
+          <button className="button" onClick={this.removeAll}>buy all</button>
+          {
+            carts.map(({
+              id, title, img, category, price, details,
+            }) => (
+              <Card key={id}
+                title={title}
+                img={img}
+                category={category}
+                price={+price}
+                details={details}
+                id={+id}
+                forCarts={true}
+                DeleteItem={this.DeleteItem}
+              />
+            ))
+          }
+        </section>
 
       </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
-
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
-
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
-
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
-
-      </div>
-      <div className="card">
-        <img src={img} alt="Image Error" />
-        <h2>T-Shirt</h2>
-        <span className="category">Children</span>
-        <h3>30$</h3>
-
-      </div>
-
-    </section>
-  );
+    );
+  }
 }
 
 export default Cart;

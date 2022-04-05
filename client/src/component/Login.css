@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 select {
     width: 20%;
     padding: 0 20px;
@@ -8,6 +9,8 @@ select {
     appearance: none;
    /* background: url(clothes-hanger.png) 96% / 10% no-repeat #eee;*/
     }
+=======
+>>>>>>> 0a6ae2cf5dd5ddefb91ac116a25c8cb01991cf8f
 
 .input{
     width: 20%;

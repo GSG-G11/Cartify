@@ -5,14 +5,11 @@ const { customizedError } = require('../utils');
 const editProduct = (req, res, next) => {
   editProductValidation(req.body)
     .then(() => editProductQuery(req.body))
-    .then(({ rowCount }) => {
-      if (rowCount === 0) {
+    .then(({ rows }) => {
+      if (rows.length === 0) {
         res.status(400).json(customizedError(400, 'Bad Request'));
       } else {
-        res.json({
-          status: 200,
-          message: 'Updated Successfully',
-        });
+        res.json(rows);
       }
     }).catch((err) => {
       if (err.details) {
