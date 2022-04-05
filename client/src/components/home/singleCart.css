@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 30px;
+}
+.product_image{
+    min-height:30% ;
+    min-width:40% ;
+}
+.product_info{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+a{
+    color:black;
+    text-decoration: none;
+}
+a:hover{
+    color: #9057AD;
+}
