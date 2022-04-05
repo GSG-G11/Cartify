@@ -1,45 +1,45 @@
 import React from 'react';
-import img from '../image/img.png';
+import PropTypes from 'prop-types';
 import './singleCart.css';
+import { useLocation } from 'react-router-dom';
+import addToCart from './home/addToCart';
 
 function SingleProduct() {
+  const {
+    state: {
+      img, title, category, price, details, id,
+    },
+  } = useLocation();
   return (
-        <div>
-            <section className="header">
-                <img className="product_image" src={img} alt="Image Error" />
-                <div className="product_info">
-                    <h1>T-Shirt</h1>
-                    <h1>$120</h1>
-                    <br/>
-                    <br/>
-                    <button className="button">Add to cart</button>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing
-                        and typesetting industry. Lorem Ipsum
-                        has been the industry standard dummy
-                        text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled
-                        it to make a type specimen book. It has survived
-                        not only five centuries, but also the leap into
-                        electronic typesetting, remaining essentially unchanged.
-                        It was popularised in the 1960s with the release of Letraset sheets
-                        containing Lorem Ipsum passages, and more recently
-                        with desktop publishing software like Aldus PageMaker
-                        including versions of Lorem Ipsum
-                    </p>
-
-                </div>
-            </section>
-
+    <div>
+      <section className="header">
+        <img className="product_image" src={img} alt="Image Error" />
+        <div className="product_info">
+          <h1>{title}</h1>
+          <h1>{price}</h1>
+          <h1>{category}</h1>
+          <br />
+          <br />
+          <button
+            className="button"
+            onClick={() => addToCart(img, title, category, price, details, id)}
+          >
+            addToCart
+          </button>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <p>{details}</p>
         </div>
-
+      </section>
+    </div>
   );
 }
 
+SingleProduct.propTypes = {
+  navigate: PropTypes.func.isRequired,
+};
 export default SingleProduct;

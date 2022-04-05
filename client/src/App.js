@@ -18,7 +18,7 @@ function App() {
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/login" element={<LoginFunc />}></Route>
           <Route path="/Myproduct" element={<MyProduct />}></Route>
-          <Route path="/product" element={<SingleProduct />}></Route>
+          <Route path="/details" element={<SingleProduct />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

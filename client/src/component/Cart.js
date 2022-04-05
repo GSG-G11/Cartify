@@ -36,24 +36,25 @@ class Cart extends Component {
     return (
       <div>
         <section className="landscape">
-          <button className="button" onClick={this.removeAll}>buy all</button>
-          {
-            carts.map(({
-              id, title, img, category, price,
-            }) => (
-              <Card key={id}
-                title={title}
-                img={img}
-                category={category}
-                price={+price}
-                id={+id}
-                forCarts={true}
-                DeleteItem={this.DeleteItem}
-              />
-            ))
-          }
+          <button className="button" onClick={this.removeAll}>
+            buy all
+          </button>
+          {carts.map(({
+            id, title, img, category, price, details,
+          }) => (
+            <Card
+              key={id}
+              title={title}
+              img={img}
+              category={category}
+              price={+price}
+              details={details}
+              id={+id}
+              forCarts={true}
+              DeleteItem={this.DeleteItem}
+            />
+          ))}
         </section>
-
       </div>
     );
   }
