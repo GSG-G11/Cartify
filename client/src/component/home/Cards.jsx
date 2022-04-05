@@ -15,6 +15,8 @@ const Cards = ({ list }) => (
           category={category}
           price={+price}
           id={+id}
+
+
         />
       ))
     }

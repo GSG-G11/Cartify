@@ -10,7 +10,7 @@ function NavBar() {
                 <div>
                     <ul>
                         <li ><Link to="/" className="nav_selected">Home</Link></li>
-                        <li ><Link to="/products">My Products</Link></li>
+                        <li ><Link to="/Myproduct">My Products</Link></li>
                         <li ><Link to="/cart">Cart</Link></li>
                     </ul>
                 </div>
