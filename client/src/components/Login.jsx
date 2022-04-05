@@ -27,7 +27,7 @@ class Login extends Component {
       <div className='body'>
 
         <form className="form-input" onSubmit={this.handleSubmit}>
-          <h1>Login Now</h1>
+          <h1 className='login-title'>LOG IN</h1>
 
           <input className="input"
             type="text" name="username" placeholder="username" value={username} onChange={this.handleChange} required />

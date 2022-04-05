@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import Card from './home/Card.jsx';
+import Card from './Home/Card.jsx';
 
 class Cart extends Component {
   state = {
@@ -35,10 +34,11 @@ class Cart extends Component {
 
     return (
       <div>
-        <section className="landscape">
-          <button className="button" onClick={this.removeAll}>
+         <button className="button" onClick={this.removeAll}>
             buy all
           </button>
+        <section className="landscape-cart">
+
           {carts.map(({
             id, title, img, category, price, details,
           }) => (

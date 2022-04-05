@@ -66,7 +66,7 @@ function MyProduct() {
   };
   return (
         <div>
-        <button onClick={addData}></button>
+        <button onClick={addData}>Add Product</button>
         </div>
   );
 }

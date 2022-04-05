@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './singleCart.css';
 import { useLocation } from 'react-router-dom';
-import addToCart from './home/addToCart';
+import addToCart from './Home/addToCart';
 
 function SingleProduct() {
   const {
@@ -11,28 +10,20 @@ function SingleProduct() {
     },
   } = useLocation();
   return (
-    <div>
-      <section className="header">
+    <div className='productBody'>
+      <section className="single-product-section">
         <img className="product_image" src={img} alt="Image Error" />
         <div className="product_info">
-          <h1>{title}</h1>
-          <h1>{price}</h1>
-          <h1>{category}</h1>
-          <br />
-          <br />
+          <h3 className='text'>{title}</h3>
+          <p className='text'>{price} $</p>
+          <p className='text'>{category}</p>
+          <p className='details'>{details}</p>
           <button
-            className="button"
+            className="btn-single-product"
             onClick={() => addToCart(img, title, category, price, details, id)}
           >
             addToCart
           </button>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <p>{details}</p>
         </div>
       </section>
     </div>
