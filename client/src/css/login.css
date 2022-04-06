@@ -1,0 +1,60 @@
+.containerLogin{
+
+    display: flex;
+    justify-content: center;
+    align-self: center
+}
+  .form-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    width: 40vw;
+    margin-top: 5%;
+
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.4)
+  
+  }
+  .input {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    height: 40px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .input:focus {
+    outline: none;
+    border-color: #9057AD;
+
+  }
+  .button-from-login{
+    border: none;
+    color: white;
+    padding:8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 60%;
+    background-color: #9057AD;
+    margin: 20px 0;
+  
+  
+  }
+  .login-title{
+     color: #9057AD; 
+  }
+  .attr_links {
+    color: #9057ad;
+    text-decoration: none;
+  }
+  /* cart styel*/
+  .landscape-cart{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;   
+  }

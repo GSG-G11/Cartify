@@ -1,25 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+
 import axios from 'axios';
 
 const Card = ({
   img, title, category, price, id, updateProducts,
 }) => (
   <div className="card">
-    <img src={img} alt="Image Error" />
-    <h2>{title}</h2>
-    <span className="category">{category}</span>
-    <h3>{price}</h3>
+    <div className='icons'>
 
-    <div>
-      <button className="card_button button">Edit</button>
-      <button className="card_button button" onClick={() => {
+     <EditOutlined className='icon' />
+      <DeleteOutlined onClick={() => {
         axios.delete(`/api/v1/product?id=${id}`)
           .catch(() => axios.delete(`http://localhost:3001/api/v1/product?id=${id}`))
           .then((res) => res.data)
           .then((products) => updateProducts(products));
-      }
-      }>Delete</button>
+      }} className='icon' />
+      </div>
+
+    <img src={img} alt="Image Error" className='card_img' />
+    <p>{title}</p>
+    <p>{price} $</p>
+    <span>{category}</span>
+    <span className='goToDetails' >know more</span>
+
+    <div>
+
     </div>
   </div>
 );

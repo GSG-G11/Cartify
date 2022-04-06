@@ -115,22 +115,23 @@ class Home extends React.Component {
               </li>
             </ul>
             <label htmlFor="price_filter" className="filter_label">
-              Filter by price:
+              sort price by :
             </label>
             <select
+
               selected={this.state.price}
               name="price_filter"
               id="price_filter"
               onChange={this.handlePriceChange}
+
             >
               <option value="">$$$</option>
               <option value="high">High to Low</option>
               <option value="low">Low to High</option>
             </select>
-            <label htmlFor="search_filter" className="filter_label">
-              Search item:
-            </label>
+
             <input
+
               className="search"
               type="text"
               name=""
@@ -138,6 +139,7 @@ class Home extends React.Component {
               placeholder="Search item"
               onChange={this.handleSearchChange}
             />
+              <button className="search-btn"type="submit"><i className="fa fa-search"></i></button>
           </div>
         </section>
         <Cards

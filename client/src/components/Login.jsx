@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import '../css/login.css';
 
 class Login extends Component {
   state = {
@@ -24,7 +24,7 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div className='body'>
+      <div className='containerLogin'>
 
         <form className="form-input" onSubmit={this.handleSubmit}>
           <h1 className='login-title'>LOG IN</h1>

@@ -5,7 +5,7 @@ import addToCart from './Home/addToCart';
 function SingleProduct() {
   const {
     state: {
-      img, title, category, price, details, id,
+      img, title, category, price, description, id,
     },
   } = useLocation();
   return (
@@ -16,10 +16,10 @@ function SingleProduct() {
           <h3 className='text'>{title}</h3>
           <p className='text'>{price} $</p>
           <p className='text'>{category}</p>
-          <p className='details'>{details}</p>
+          <p className='details'>{description}</p>
           <button
             className="btn-single-product"
-            onClick={() => addToCart(img, title, category, price, details, id)}
+            onClick={() => addToCart(img, title, category, price, description, id)}
           >
             addToCart
           </button>

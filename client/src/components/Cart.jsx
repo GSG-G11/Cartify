@@ -6,18 +6,16 @@ const Cart = ({
   isLoading, cart, updateCart, confirmSetAction,
 }) => (isLoading ? <div>loading</div> : (
       <div>
-         <button className="button" onClick={() => updateCart([])}>
-            buy all
-          </button>
+
         <section className="landscape-cart">
 
           {cart.map(({
-            id, title, img, category, price, description,
+            id, title, img_url: imgUrl, category, price, description,
           }) => (
             <Card
               key={id}
               title={title}
-              img={img}
+              img={imgUrl}
               category={category}
               price={+price}
               description={description}
@@ -27,7 +25,12 @@ const Cart = ({
               confirmSetAction={confirmSetAction}
             />
           ))}
+
         </section>
+        <button className="buy-btn" onClick={() => updateCart([])}>
+            Buy All
+          </button>
+
       </div>
 ));
 Cart.propTypes = {

@@ -2,12 +2,57 @@
 /*nav component style*/
 *{
     font-family:"Georgia";
-    margin:0;
-    padding: 0;
+   
 
 }
+.addContainer{
+
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+  .add-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px;
+    width: 50vw;
+    margin-top: 2%;
+
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.4)
+  }
+  .add-title{
+    color: #9057AD;  
+  }
+  .textarea {
+   
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .textarea:focus {
+    outline: none;
+    border-color: #9057AD;
+  }
+  .button-from-add{
+    border: none;
+    color: white;
+    padding:8px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    width: 60%;
+    background-color: #9057AD;
+    margin: 20px 0;
+    font-family:"Georgia" 
+  }
 .Header{
-    padding: 5px 100px;
+    padding: 5px 130px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,32 +99,37 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 5px;
+  
 }
 .header_title-home{
     font-size: 25px;
     margin-top: 20px;
+    
 }
-.filter_category{
-    margin-right:20px
-}
+
 .filter_category  {
     display: flex;
     list-style-type: none;
+ 
+    
 }
 
 .filter_category  li{
     display: flex;
-    margin-left: 20px;
     font-size: 20px;
+    margin-right: 20px;
 }
 .filter_items{
     display: flex;
     align-items: center;
+    background-color: #f9f9f9;
+    width: 82%;
+    border: .1rem solid rgba(0,0,0,.1);
 }
 .filter_label{
 
-    margin-left: 20px;
+    margin: 10px;
 }
 
 #price_filter {
@@ -90,14 +140,19 @@
     background: url(../../public/pages/price-tag.png) 96% / 15% no-repeat #eee;
 }
 .search{
-    width: 20%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    height: 34px;
+    width: 30%;
+    margin-left: 5%;
+    height: 40px;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
+ 
     box-sizing: border-box;
+}
+.search-btn{
+    height: 38px;   
+    background-color: #9057AD;
+    border: none;
+    color: #ffff;
 }
 
 .search:focus{
@@ -113,130 +168,102 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
-    padding:20px;
-    border: 1px solid #000;
+    margin: 20px;
+    background-color: #f9f9f9;
+    border: .1rem solid rgba(0,0,0,.1);
+    border-radius: 5px;
+  
 }
 .card_img{
-    height: 100%;
-    width: 100%;
-    object-fit:cover
+    height:200px;
+    width:200px;
+    object-fit:cover;
+    margin-bottom: 30px;
+}
+.card span{
+    margin-bottom: 5px;  
+}
+.card p{
+   margin-bottom: 5px; 
+   font-weight: 600;
 }
 .card-btn{
     background-color: #9057AD;
     border: none;
     color: white;
-    padding: 2px 20px;
+    padding: 2px 52px;
     height: 35px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     border-radius: 5px;
     font-size: 16px;
+    margin-top: 15px;
 }
+.card-btn-delete{
+    background-color: #9057AD;
+    border: none;
+    color: white;
+    padding: 2px 70px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px; 
+}
+
+/*seller page*/
+.seller-btn{
+    background-color: #9057AD;
+    border: none;
+    color: white;
+    padding: 2px 30px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;   
+}
+.icons{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom:  .1rem solid rgba(0,0,0,.1);
+    margin-bottom: 10px;
+    
+}
+.icon{
+    color: #9057AD;
+    font-size: 25px;
+    margin-right: 10px;
+};
  /*login style*/
- .body{
 
-    display: flex;
-    justify-content: center;
-    align-self: center;
-  }
-  .form-input {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    width: 40vw;
-    margin-top: 5%;
+  /* add product page
+  */
 
-    box-shadow:0 .5rem 1rem rgba(0,0,0,.4)
   
+
+  /*filter*/
+  #price_filter{
+    padding: 8px 12px;
+  
+    background-color: #eeeeee;
+    border: 1px solid #dddd;
+    width: 20%;
+    height: 38px;
   }
-  .input {
-    width: 60%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    height: 40px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  .input:focus {
+  #price_filter:focus{
     outline: none;
     border-color: #9057AD;
-
-  }
-  .button-from-login{
-    border: none;
-    color: white;
-    padding:8px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    width: 60%;
-    background-color: #9057AD;
-    margin: 20px 0;
-  
-  
-  }
-  .login-title{
-     color: #9057AD; 
-  }
-  .attr_links {
-    color: #9057ad;
-    text-decoration: none;
-  }
-  /* cart styel*/
-  .landscape-cart{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;   
-  }
-
-  /* add product page*/
-  .add-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 30px;
-    width: 50vw;
-    margin-top: 2%;
-
-    box-shadow:0 .5rem 1rem rgba(0,0,0,.4)
-  }
-  .add-title{
-    color: #9057AD;  
-  }
-  .textarea {
-   
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  .textarea:focus {
-    outline: none;
-    border-color: #9057AD;
-  }
-  .button-from-add{
-    border: none;
-    color: white;
-    padding:8px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    width: 60%;
-    background-color: #9057AD;
-    margin: 20px 0;
-    font-family:"Georgia" 
-  }
+}
+#price_filter option{
+    background-color: #fff;
+}
   .select{
       padding: 8px 12px;
   
@@ -301,4 +328,23 @@
 }
 .text{
     margin-bottom: 20px;
+}
+.goToDetails{
+    color: #9057AD;
+    cursor: pointer;
+
+}
+.buy-btn{
+    background-color: #9057AD;
+    border: none;
+    color: white;
+    padding: 2px 70px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;
+    justify-content: flex-start;
 }

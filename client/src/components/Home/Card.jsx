@@ -9,10 +9,18 @@ const Card = ({
   const navigate = useNavigate();
 
   return (<div className="card" >
-    <img src={img} alt="Image Error" />
-    <h2>{title}</h2>
-    <span className="category">{category}</span>
-    <h3>{price}</h3>
+    <img src={img} alt="Image Error" className='card_img'/>
+    <p>{title}</p>
+
+    <p>{price} $</p>
+    <span className='goToDetails' onClick={() => navigate(
+      '/details',
+      {
+        state: {
+          img, title, category, price, description, id,
+        },
+      },
+    )}>know more</span>
    {!(cart).find((item) => item.id === id) ? <button
       className="card-btn"
       onClick={() => {
@@ -27,19 +35,12 @@ const Card = ({
         updateCart(cart);
       }} >
       Add to Cart
-    </button> : <button className="card-btn" onClick={() => {
+    </button> : <button className="card-btn-delete" onClick={() => {
       confirmSetAction(() => {
         updateCart(cart.filter((item) => item.id !== id));
       });
     }}>Delete</button>}
-    <p onClick={() => navigate(
-      '/details',
-      {
-        state: {
-          img, title, category, price, description, id,
-        },
-      },
-    )}>know more</p>
+
   </div>
   );
 };

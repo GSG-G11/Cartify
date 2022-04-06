@@ -28,7 +28,7 @@ class AddProduct extends React.Component {
 
   render() {
     return (
-        <div className='body'>
+        <div className='addContainer'>
        <form className="add-form" onSubmit={this.handleSubmit}>
         <h2 className='add-title'>Add Product</h2>
         <input className="input" type="text" id="title" placeholder="Product Title" onChange={this.handleChange}/>
