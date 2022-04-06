@@ -18,7 +18,7 @@ function NavBar() {
               </Link>
             </li>
             <li>
-              <Link to="/product" className ={location === 'product' ? 'selected' : null}>Products</Link>
+              <Link to="/product" className ={location === '/product' ? 'selected' : null}>Products</Link>
             </li>
             <li>
               <Link to="/cart" className ={location === '/cart' ? 'selected' : null}>Cart</Link>
