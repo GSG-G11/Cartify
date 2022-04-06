@@ -73,7 +73,7 @@ class AddProductClass extends React.Component {
       description,
     } = this.state;
     return (
-        <div className='body'>
+        <div className='addContainer'>
        <form className="add-form" onSubmit={
          this.handleSubmit
        }>

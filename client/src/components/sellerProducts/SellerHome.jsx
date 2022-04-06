@@ -64,8 +64,8 @@ class SellerHome extends React.Component {
     const { updateProducts, confirmSetAction, navigate } = this.props;
     return (
       <div>
-        <section className="header_section">
-          <button className="button"onClick={this.redirectToAdd}>Add new Product</button>
+        <section className="header_section-home">
+          <button className="add-product-btn" onClick={this.redirectToAdd}>Add new Product</button>
           <div className="filter_items">
             <ul className="filter_category">
               <li>
@@ -124,14 +124,15 @@ class SellerHome extends React.Component {
             <label htmlFor="price_filter" className="filter_label">
               Filter by price:
             </label>
-            <select name="price_filter" id="price_filter" onChange={this.handlePriceChange}>
+            <select
+
+              name="price_filter"
+              id="price_filter"
+              onChange={this.handlePriceChange}>
               <option value="high">High to Low</option>
               <option value="low">Low to High</option>
             </select>
 
-            <label htmlFor="search_filter" className="filter_label">
-              Search item:
-            </label>
             <input
               className="search"
               type="text"
@@ -140,13 +141,14 @@ class SellerHome extends React.Component {
               placeholder="Search item"
               onChange={this.handleSearchChange}
             />
+            <button className="search-btn" type="submit"><i className="fa fa-search"></i></button>
           </div>
         </section>
         <Cards list={this.filterItems()}
-         updateProducts={updateProducts}
-         confirmSetAction={confirmSetAction}
-         navigate={navigate}
- />
+          updateProducts={updateProducts}
+          confirmSetAction={confirmSetAction}
+          navigate={navigate}
+        />
 
       </div>
     );

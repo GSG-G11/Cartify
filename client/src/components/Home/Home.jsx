@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Cards from './Cards.jsx';
 
+const header = require('../../image/header.png');
+
 class Home extends React.Component {
   state = {
     categoryFilter: '',
@@ -57,6 +59,14 @@ class Home extends React.Component {
     const { cart, updateCart, confirmSetAction } = this.props;
     return (
       <div>
+        <div>
+      <img className='img-header' src={header}/>
+      <div className='centered'>
+      <h5>Cartify</h5>
+
+      </div>
+
+        </div>
         <section className="header_section-home">
           <h1 className="header_title-home">Our Products</h1>
           <div className="filter_items">
@@ -115,22 +125,24 @@ class Home extends React.Component {
               </li>
             </ul>
             <label htmlFor="price_filter" className="filter_label">
-              Filter by price:
+              sort price by :
             </label>
             <select
+
               selected={this.state.price}
               name="price_filter"
               id="price_filter"
               onChange={this.handlePriceChange}
+              className="selectPrice"
+
             >
               <option value="">$$$</option>
               <option value="high">High to Low</option>
               <option value="low">Low to High</option>
             </select>
-            <label htmlFor="search_filter" className="filter_label">
-              Search item:
-            </label>
+
             <input
+
               className="search"
               type="text"
               name=""
@@ -138,6 +150,7 @@ class Home extends React.Component {
               placeholder="Search item"
               onChange={this.handleSearchChange}
             />
+              <button className="search-btn"type="submit"><i className="fa fa-search"></i></button>
           </div>
         </section>
         <Cards

@@ -2,201 +2,37 @@
 /*nav component style*/
 *{
     font-family:"Georgia";
-    margin:0;
-    padding: 0;
+   
 
 }
-.Header{
-    padding: 5px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-
-    box-shadow:0 .5rem 1rem rgba(0,0,0,.2)
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.Header ul {
-    display: flex;
-    list-style-type: none;
+.centered h5{
+    font-size: 80px;
+    color: #fff;
+
 }
 
-.Header ul li{
-    display: flex;
-    margin-right: 20px;
-    font-size: 20px;
+.img-header{
+width: 100%;
+height: 50%;
 }
-.logo{
-    font-size: 20px;
-    font-family:"Georgia"
-}
-.logo, .selected{
+.nav_selected{
     color:#9057AD
 }
-
-.login-btn {
-    background-color: #9057AD;
-    border: none;
-    color: white;
-    padding:5px 10px;
-    height: 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-    font-size: 16px;
+button{
+    cursor: pointer;
 }
-.Link{
-    background-color: #9057AD;
-}
-/*home component style*/
-.header_section-home{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-.header_title-home{
-    font-size: 25px;
-    margin-top: 20px;
-}
-.filter_category{
-    margin-right:20px
-}
-.filter_category  {
-    display: flex;
-    list-style-type: none;
-}
-
-.filter_category  li{
-    display: flex;
-    margin-left: 20px;
-    font-size: 20px;
-}
-.filter_items{
-    display: flex;
-    align-items: center;
-}
-.filter_label{
-
-    margin-left: 20px;
-}
-
-#price_filter {
-    width: 150px;
-    padding: 5px 35px 5px 5px;
-    border: 1px solid #ccc;
-    height: 34px;
-    background: url(../../public/pages/price-tag.png) 96% / 15% no-repeat #eee;
-}
-.search{
-    width: 20%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    height: 34px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.search:focus{
-    outline: none;
-}
-.landscape {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.card{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-    padding:20px;
-    border: 1px solid #000;
-}
-.card_img{
-    height: 100%;
-    width: 100%;
-    object-fit:cover
-}
-.card-btn{
-    background-color: #9057AD;
-    border: none;
-    color: white;
-    padding: 2px 20px;
-    height: 35px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-    font-size: 16px;
-}
- /*login style*/
- .body{
+.addContainer{
 
     display: flex;
     justify-content: center;
     align-self: center;
   }
-  .form-input {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    width: 40vw;
-    margin-top: 5%;
-
-    box-shadow:0 .5rem 1rem rgba(0,0,0,.4)
-  
-  }
-  .input {
-    width: 60%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    height: 40px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  .input:focus {
-    outline: none;
-    border-color: #9057AD;
-
-  }
-  .button-from-login{
-    border: none;
-    color: white;
-    padding:8px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    width: 60%;
-    background-color: #9057AD;
-    margin: 20px 0;
-  
-  
-  }
-  .login-title{
-     color: #9057AD; 
-  }
-  .attr_links {
-    color: #9057ad;
-    text-decoration: none;
-  }
-  /* cart styel*/
-  .landscape-cart{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;   
-  }
-
-  /* add product page*/
   .add-form{
     display: flex;
     flex-direction: column;
@@ -204,7 +40,7 @@
     align-items: center;
     padding: 10px 30px;
     width: 50vw;
-    margin-top: 2%;
+    margin-top: 2.5%;
 
     box-shadow:0 .5rem 1rem rgba(0,0,0,.4)
   }
@@ -237,6 +73,223 @@
     margin: 20px 0;
     font-family:"Georgia" 
   }
+.Header{
+    padding: 5px 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.2)
+}
+.Header ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.Header ul li{
+    display: flex;
+    margin-right: 20px;
+    font-size: 20px;
+}
+.logo{
+    font-size: 20px;
+    font-family:"Georgia"
+}
+.logo, .selected{
+    color:#9057AD
+}
+
+.login-btn {
+    
+    background-color: #9057AD;
+    border: none;
+    color: white;
+    padding:5px 10px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.Link{
+    background-color: #9057AD;
+}
+/*home component style*/
+.header_section-home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+  
+}
+.header_title-home{
+    font-size: 25px;
+    margin-top: 20px;
+    
+}
+
+.filter_category  {
+    display: flex;
+    list-style-type: none;
+ 
+    
+}
+
+.filter_category  li{
+    display: flex;
+    font-size: 20px;
+    margin-right: 20px;
+}
+.filter_items{
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    width: 82%;
+    border: .1rem solid rgba(0,0,0,.1);
+}
+.filter_label{
+
+    margin: 10px;
+}
+
+#price_filter {
+    width: 150px;
+    padding: 5px 35px 5px 5px;
+    border: 1px solid #ccc;
+    height: 34px;
+    background: url(../../public/pages/price-tag.png) 96% / 15% no-repeat #eee;
+}
+
+.search{
+    width: 30%;
+    margin-left: 10%;
+    height: 40px;
+    display: inline-block;
+    border: 1px solid #ccc;
+ 
+    box-sizing: border-box;
+}
+.search-btn{
+    height: 38px;   
+    background-color: #9057AD;
+    border: none;
+    color: #ffff;
+}
+
+.search:focus{
+    outline: none;
+}
+.landscape {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    background-color: #f9f9f9;
+    border: .1rem solid rgba(0,0,0,.1);
+    border-radius: 5px;
+  
+}
+.card_img{
+    height:200px;
+    width:200px;
+    object-fit:cover;
+    margin-bottom: 30px;
+}
+.card span{
+    margin-bottom: 5px;  
+}
+.card p{
+   margin-bottom: 5px; 
+   font-weight: 600;
+}
+.card-btn{
+    background-color: #9057AD;
+    border: none;
+    color: white;
+    padding: 2px 52px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;
+}
+.card-btn-delete{
+    background-color: #9057AD;
+    border: none;
+    color: white;
+    padding: 2px 35px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px; 
+}
+
+/*seller page*/
+.seller-btn{
+    background-color: #9057AD;
+    border: none;
+    color: white;
+    padding: 2px 30px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 15px;   
+}
+.icons{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom:  .1rem solid rgba(0,0,0,.1);
+    margin-bottom: 10px;
+    
+}
+.icon{
+    cursor: pointer;
+    color: #9057AD;
+    font-size: 25px;
+    margin-right: 10px;
+};
+ /*login style*/
+
+  /* add product page
+  */
+
+  
+
+  /*filter*/
+  #price_filter{
+    padding: 8px 12px;
+  
+    background-color: #eeeeee;
+    border: 1px solid #dddd;
+    width: 25%;
+    height: 38px;
+  }
+  #price_filter:focus{
+    outline: none;
+    border-color: #9057AD;
+}
+#price_filter 
+{
+    background-color: #fff;
+}
   .select{
       padding: 8px 12px;
   
@@ -302,3 +355,44 @@
 .text{
     margin-bottom: 20px;
 }
+.goToDetails{
+    color: #9057AD;
+    cursor: pointer;
+
+}
+.buy-btn , .add-product-btn{
+    background-color: #9057AD;
+    border: none;
+    color: white;
+    padding: 2px 70px;
+    height: 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 20px;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+.buy-btn-div{
+    display: flex;
+    justify-content: center;
+    margin-right: 100px;
+    margin-bottom: 50px;
+}
+.error_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+    font-size: 40px;
+    line-height:50px;
+    margin-top: 100px;
+    }
+    
+    .homepage_link{
+      color:#9057AD
+    }
