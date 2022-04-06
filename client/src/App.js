@@ -80,6 +80,7 @@ class App extends Component {
           isLoading={isLoading}
           products={products}
           updateProducts={this.updateProducts}
+          confirmSetAction={this.confirmSetAction}
           />}></Route>
           <Route path="/" element={
 
@@ -89,8 +90,9 @@ class App extends Component {
           updateCart={this.updateCart}
           confirmSetAction={this.confirmSetAction}
            products={products} />}></Route>
-          <Route path="/addproduct" element={
+          <Route path="/addproduct/:id" element={
           <AddProduct
+          products={products}
           updateProducts={this.updateProducts}
           />}></Route>
           <Route path="/details" element={<SingleProduct />}></Route>
