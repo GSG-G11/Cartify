@@ -157,7 +157,8 @@ class Home extends React.Component {
         cart={cart}
         updateCart={updateCart}
         confirmSetAction={confirmSetAction}
-        list={this.filterItems()} />
+        list={this.filterItems()}
+        search={this.state.searchFilter} />
       </div>
     );
   }
