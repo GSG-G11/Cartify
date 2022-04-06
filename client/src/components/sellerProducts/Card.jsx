@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const Card = ({
-  img, title, category, price,
+  img, title, category, price, id, updateProducts,
 }) => (
   <div className="card">
     <img src={img} alt="Image Error" />
@@ -12,7 +13,13 @@ const Card = ({
 
     <div>
       <button className="card_button button">Edit</button>
-      <button className="card_button button">Delete</button>
+      <button className="card_button button" onClick={() => {
+        axios.delete(`/api/v1/product?id=${id}`)
+          .catch(() => axios.delete(`http://localhost:3001/api/v1/product?id=${id}`))
+          .then((res) => res.data)
+          .then((products) => updateProducts(products));
+      }
+      }>Delete</button>
     </div>
   </div>
 );
@@ -23,6 +30,7 @@ Card.propTypes = {
   img: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  updateProducts: PropTypes.func.isRequired,
 };
 
 export default Card;

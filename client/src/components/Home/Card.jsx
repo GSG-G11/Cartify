@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { useNavigate } from 'react-router-dom';
-import addToCart from './addToCart';
 
 const Card = ({
-  id, img, title, category, price, forCarts, DeleteItem, details,
+  id, img, title, category, price, description, cart, updateCart, confirmSetAction,
 }) => {
   const navigate = useNavigate();
 
@@ -14,16 +13,30 @@ const Card = ({
     <h2>{title}</h2>
     <span className="category">{category}</span>
     <h3>{price}</h3>
-   {!forCarts ? <button
+   {!(cart).find((item) => item.id === id) ? <button
       className="card-btn"
-      onClick={() => addToCart(img, title, category, price, details, id)} >
+      onClick={() => {
+        cart.push({
+          id,
+          title,
+          price,
+          description,
+          img_url: img,
+          category,
+        });
+        updateCart(cart);
+      }} >
       Add to Cart
-    </button> : <button className="card-btn" onClick={() => DeleteItem(id)}>Delete</button>}
+    </button> : <button className="card-btn" onClick={() => {
+      confirmSetAction(() => {
+        updateCart(cart.filter((item) => item.id !== id));
+      });
+    }}>Delete</button>}
     <p onClick={() => navigate(
       '/details',
       {
         state: {
-          img, title, category, price, details, id,
+          img, title, category, price, description, id,
         },
       },
     )}>know more</p>
@@ -36,9 +49,10 @@ Card.propTypes = {
   img: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  forCarts: PropTypes.bool.isRequired,
-  DeleteItem: PropTypes.func.isRequired,
-  details: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  cart: PropTypes.array.isRequired,
+  updateCart: PropTypes.func.isRequired,
+  confirmSetAction: PropTypes.func.isRequired,
 
 };
 

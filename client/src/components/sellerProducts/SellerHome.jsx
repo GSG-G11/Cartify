@@ -4,50 +4,6 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import Cards from './Cards.jsx';
 
-const items = [
-  {
-    id: 0,
-    img: 'this image',
-    title: 'Baby Pijamas for Men',
-    category: 'Children',
-    price: '5',
-  },
-  {
-    id: 1,
-    img: 'this image 1',
-    title: 'this title 1',
-    category: 'Men',
-    price: '100',
-  },
-  {
-    id: 2,
-    img: 'this image 2',
-    title: 'this title 2',
-    category: 'Women',
-    price: '20',
-  },
-  {
-    id: 3,
-    img: 'this image 3',
-    title: 'this title 3',
-    category: 'Men',
-    price: '3',
-  },
-  {
-    id: 4,
-    img: 'image 4',
-    title: 'Winter jacket for Men',
-    category: 'Men',
-    price: '4',
-  },
-  {
-    id: 5,
-    img: 'image 5',
-    title: 'T shirt for men',
-    category: 'Women',
-    price: '10',
-  },
-];
 class SellerHome extends React.Component {
   state = {
     categoryFilter: '',
@@ -80,8 +36,9 @@ class SellerHome extends React.Component {
   };
 
   filterItems = () => {
+    const { products } = this.props;
     const { categoryFilter, searchFilter, priceFilter } = this.state;
-    const filteredArray = items.filter(
+    const filteredArray = products.filter(
       (item) => (categoryFilter === '' || categoryFilter === item.category)
         && item.title.toLowerCase().includes(searchFilter.toLowerCase()),
     );
@@ -104,6 +61,7 @@ class SellerHome extends React.Component {
   };
 
   render() {
+    const { updateProducts } = this.props;
     return (
       <div>
         <section className="header_section">
@@ -184,7 +142,7 @@ class SellerHome extends React.Component {
             />
           </div>
         </section>
-        <Cards list={this.filterItems()} />
+        <Cards list={this.filterItems()} updateProducts={updateProducts} />
 
       </div>
     );
@@ -192,13 +150,27 @@ class SellerHome extends React.Component {
 }
 
 const SellerHomeFun = (props) => {
+  const { updateProducts } = props;
   const navigate = useNavigate();
   return (
-    <SellerHome {...props} navigate={navigate}/>
+    <SellerHome {...props} navigate={navigate} updateProducts={updateProducts} />
 
   );
 };
-SellerHome.propTypes = {
-  navigate: PropTypes.func.isRequired,
+SellerHomeFun.propTypes = {
+  updateProducts: PropTypes.func.isRequired,
 };
+SellerHome.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    category: PropTypes.string.isRequired,
+    img_url: PropTypes.string.isRequired,
+  })),
+  navigate: PropTypes.func.isRequired,
+  updateProducts: PropTypes.func.isRequired,
+};
+
 export default SellerHomeFun;

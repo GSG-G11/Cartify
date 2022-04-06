@@ -1,10 +1,11 @@
-const { addProductQuery } = require('../database/queries');
+const { addProductQuery, getProductQuery } = require('../database/queries');
 const { customizedError } = require('../utils');
 const { addProudctValidation } = require('../utils/validation');
 
 const addProduct = (req, res, next) => {
   addProudctValidation(req.body)
     .then(() => addProductQuery(req.body))
+    .then(() => getProductQuery())
     .then(({ rows }) => res.json(rows))
     .catch((err) => {
       if (err.details) {

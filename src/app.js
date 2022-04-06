@@ -2,11 +2,13 @@ const { join } = require('path');
 require('env2')('.env');
 const express = require('express');
 const compression = require('compression');
+const cors = require('cors');
 const { router } = require('./routes');
 const { serveRoot } = require('./controllers');
 
 const app = express();
 app.disable('etag');
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(compression());

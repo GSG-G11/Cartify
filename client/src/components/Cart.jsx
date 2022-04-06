@@ -1,46 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Card from './Home/Card.jsx';
 
-class Cart extends Component {
-  state = {
-    carts: [],
-  };
-
-  componentDidMount() {
-    const carts = JSON.parse(localStorage.getItem('carts')) || [];
-    this.setState({
-      carts,
-    });
-  }
-
-  DeleteItem = (id) => {
-    const { carts } = this.state;
-    const newCarts = carts.filter((item) => item.id !== id);
-    localStorage.setItem('carts', JSON.stringify(newCarts));
-    this.setState({
-      carts: newCarts,
-    });
-  };
-
-  removeAll = () => {
-    localStorage.removeItem('carts');
-    this.setState({
-      carts: [],
-    });
-  };
-
-  render() {
-    const { carts } = this.state;
-
-    return (
+const Cart = ({
+  isLoading, cart, updateCart, confirmSetAction,
+}) => (isLoading ? <div>loading</div> : (
       <div>
-         <button className="button" onClick={this.removeAll}>
+         <button className="button" onClick={() => updateCart([])}>
             buy all
           </button>
         <section className="landscape-cart">
 
-          {carts.map(({
-            id, title, img, category, price, details,
+          {cart.map(({
+            id, title, img, category, price, description,
           }) => (
             <Card
               key={id}
@@ -48,16 +20,20 @@ class Cart extends Component {
               img={img}
               category={category}
               price={+price}
-              details={details}
+              description={description}
               id={+id}
-              forCarts={true}
-              DeleteItem={this.DeleteItem}
+              cart={cart}
+              updateCart={updateCart}
+              confirmSetAction={confirmSetAction}
             />
           ))}
         </section>
       </div>
-    );
-  }
-}
-
+));
+Cart.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  cart: PropTypes.array.isRequired,
+  updateCart: PropTypes.func.isRequired,
+  confirmSetAction: PropTypes.func,
+};
 export default Cart;

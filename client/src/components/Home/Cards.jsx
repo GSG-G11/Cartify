@@ -3,19 +3,24 @@ import PropTypes from 'prop-types';
 
 import Card from './Card.jsx';
 
-const Cards = ({ list }) => (
+const Cards = ({
+  list, cart, updateCart, confirmSetAction,
+}) => (
   <section className="landscape">
-    {list.map(({
-      id, title, img, category, price, details,
+    {list.length === 0 ? <div>Not Found</div> : list.map(({
+      id, title, img_url: imgUrl, category, price, description,
     }) => (
       <Card
         key={id}
         title={title}
-        img={img}
+        img={imgUrl}
         category={category}
         price={+price}
         id={+id}
-        details={details}
+        description={description}
+        cart={cart}
+        updateCart={updateCart}
+        confirmSetAction={confirmSetAction}
       />
     ))}
   </section>
@@ -23,6 +28,9 @@ const Cards = ({ list }) => (
 
 Cards.propTypes = {
   list: PropTypes.array,
+  cart: PropTypes.array,
+  updateCart: PropTypes.func,
+  confirmSetAction: PropTypes.func,
 };
 
 export default Cards;
