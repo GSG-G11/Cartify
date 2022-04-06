@@ -5,19 +5,22 @@ import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
 const Card = ({
-  img, title, category, price, id, updateProducts,
+  img, title, category, price, id, updateProducts, confirmSetAction, navigate,
 }) => (
   <div className="card">
     <div className='icons'>
 
-     <EditOutlined className='icon' />
-      <DeleteOutlined onClick={() => {
-        axios.delete(`/api/v1/product?id=${id}`)
-          .catch(() => axios.delete(`http://localhost:3001/api/v1/product?id=${id}`))
-          .then((res) => res.data)
-          .then((products) => updateProducts(products));
-      }} className='icon' />
-      </div>
+      <EditOutlined className='icon' onClick={() => navigate(`/addproduct/${id}`)} />
+      <DeleteOutlined oonClick={() => confirmSetAction(
+        () => {
+          axios.delete(`/api/v1/product?id=${id}`)
+            .catch(() => axios.delete(`http://localhost:3001/api/v1/product?id=${id}`))
+            .then((res) => res.data)
+            .then((products) => updateProducts(products));
+        },
+      )
+      } className='icon' />
+    </div>
 
     <img src={img} alt="Image Error" className='card_img' />
     <p>{title}</p>
@@ -25,10 +28,8 @@ const Card = ({
     <span>{category}</span>
     <span className='goToDetails' >know more</span>
 
-    <div>
-
     </div>
-  </div>
+
 );
 
 Card.propTypes = {
@@ -38,6 +39,9 @@ Card.propTypes = {
   category: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   updateProducts: PropTypes.func.isRequired,
+  confirmSetAction: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
+
 };
 
 export default Card;

@@ -27,9 +27,11 @@ const Cart = ({
           ))}
 
         </section>
+        <div className='buy-btn-div'>
         <button className="buy-btn" onClick={() => updateCart([])}>
             Buy All
           </button>
+        </div>
 
       </div>
 ));

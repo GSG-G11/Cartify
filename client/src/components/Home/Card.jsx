@@ -39,7 +39,7 @@ const Card = ({
       confirmSetAction(() => {
         updateCart(cart.filter((item) => item.id !== id));
       });
-    }}>Delete</button>}
+    }}>Remove From Cart</button>}
 
   </div>
   );
