@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import SellerHomeFun from './components/sellerProducts/SellerHome.jsx';
-import Home from './components/Home/Home.jsx';
 import SingleProduct from './components/SingleProduct.jsx';
 import NotFound from './components/NotFound.jsx';
 import Cart from './components/Cart.jsx';
 import LoginFunc from './components/Login.jsx';
 import NavBar from './components/NavBar';
 import { AddProduct, Confirm, Notification } from './components';
+import Home from './components/Home/Home.jsx';
 
 class App extends Component {
   state = {
@@ -80,7 +80,6 @@ class App extends Component {
           isLoading={isLoading}
           products={products}
           updateProducts={this.updateProducts}
-          confirmSetAction={this.confirmSetAction}
           />}></Route>
           <Route path="/" element={
 
@@ -90,9 +89,8 @@ class App extends Component {
           updateCart={this.updateCart}
           confirmSetAction={this.confirmSetAction}
            products={products} />}></Route>
-          <Route path="/addproduct/:id" element={
+          <Route path="/addproduct" element={
           <AddProduct
-          products={products}
           updateProducts={this.updateProducts}
           />}></Route>
           <Route path="/details" element={<SingleProduct />}></Route>

@@ -61,7 +61,9 @@ class SellerHome extends React.Component {
   };
 
   render() {
-    const { updateProducts, confirmSetAction, navigate } = this.props;
+    const {
+      updateProducts, confirmSetAction, navigate, isLoading,
+    } = this.props;
     return (
       <div>
         <section className="header_section-home">
@@ -144,11 +146,12 @@ class SellerHome extends React.Component {
             <button className="search-btn" type="submit"><i className="fa fa-search"></i></button>
           </div>
         </section>
-        <Cards list={this.filterItems()}
-          updateProducts={updateProducts}
-          confirmSetAction={confirmSetAction}
-          navigate={navigate}
-        />
+        {isLoading ? <div className='loader'></div>
+          : <Cards list={this.filterItems()}
+        updateProducts={updateProducts}
+        confirmSetAction={confirmSetAction}
+        navigate={navigate}
+      />}
 
       </div>
     );
@@ -179,6 +182,7 @@ SellerHome.propTypes = {
   navigate: PropTypes.func.isRequired,
   updateProducts: PropTypes.func.isRequired,
   confirmSetAction: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default SellerHomeFun;

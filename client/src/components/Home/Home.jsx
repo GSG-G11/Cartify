@@ -56,7 +56,9 @@ class Home extends React.Component {
   };
 
   render() {
-    const { cart, updateCart, confirmSetAction } = this.props;
+    const {
+      cart, updateCart, confirmSetAction, isLoading,
+    } = this.props;
     return (
       <div>
         <div>
@@ -153,11 +155,15 @@ class Home extends React.Component {
               <button className="search-btn"type="submit"><i className="fa fa-search"></i></button>
           </div>
         </section>
-        <Cards
-        cart={cart}
-        updateCart={updateCart}
-        confirmSetAction={confirmSetAction}
-        list={this.filterItems()} />
+        {isLoading
+          ? <div className='loader'></div>
+          : <Cards
+          cart={cart}
+          updateCart={updateCart}
+          confirmSetAction={confirmSetAction}
+          list={this.filterItems()} />
+}
+
       </div>
     );
   }
@@ -171,10 +177,12 @@ Home.propTypes = {
     description: PropTypes.string,
     category: PropTypes.string.isRequired,
     img_url: PropTypes.string.isRequired,
+
   })),
   cart: PropTypes.array.isRequired,
   updateCart: PropTypes.func.isRequired,
   confirmSetAction: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
 
 export default Home;
