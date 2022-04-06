@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import addToCart from './Home/addToCart';
 
@@ -30,7 +29,4 @@ function SingleProduct() {
   );
 }
 
-SingleProduct.propTypes = {
-  navigate: PropTypes.func.isRequired,
-};
 export default SingleProduct;
