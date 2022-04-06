@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card.jsx';
 
-const Cards = ({ list, updateProducts }) => (
+const Cards = ({
+  list, updateProducts, confirmSetAction, navigate,
+}) => (
   <section className="landscape">
     {
       list.map(({
@@ -17,6 +19,8 @@ const Cards = ({ list, updateProducts }) => (
         id={+id}
         description={description}
         updateProducts={updateProducts}
+        confirmSetAction={confirmSetAction}
+        navigate={navigate}
         />
       ))
     }
@@ -27,6 +31,8 @@ const Cards = ({ list, updateProducts }) => (
 Cards.propTypes = {
   list: PropTypes.array,
   updateProducts: PropTypes.func.isRequired,
+  confirmSetAction: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
 };
 
 export default Cards;

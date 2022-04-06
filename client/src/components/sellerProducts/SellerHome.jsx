@@ -57,11 +57,11 @@ class SellerHome extends React.Component {
 
   redirectToAdd = () => {
     const { navigate } = this.props;
-    navigate('/addproduct');
+    navigate('/addproduct/0');
   };
 
   render() {
-    const { updateProducts } = this.props;
+    const { updateProducts, confirmSetAction, navigate } = this.props;
     return (
       <div>
         <section className="header_section">
@@ -142,7 +142,11 @@ class SellerHome extends React.Component {
             />
           </div>
         </section>
-        <Cards list={this.filterItems()} updateProducts={updateProducts} />
+        <Cards list={this.filterItems()}
+         updateProducts={updateProducts}
+         confirmSetAction={confirmSetAction}
+         navigate={navigate}
+ />
 
       </div>
     );
@@ -153,7 +157,8 @@ const SellerHomeFun = (props) => {
   const { updateProducts } = props;
   const navigate = useNavigate();
   return (
-    <SellerHome {...props} navigate={navigate} updateProducts={updateProducts} />
+    <SellerHome {...props} navigate={navigate} updateProducts={updateProducts}
+    />
 
   );
 };
@@ -171,6 +176,7 @@ SellerHome.propTypes = {
   })),
   navigate: PropTypes.func.isRequired,
   updateProducts: PropTypes.func.isRequired,
+  confirmSetAction: PropTypes.func.isRequired,
 };
 
 export default SellerHomeFun;

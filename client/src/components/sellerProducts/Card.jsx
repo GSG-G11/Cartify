@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const Card = ({
-  img, title, category, price, id, updateProducts,
+  img, title, category, price, id, updateProducts, confirmSetAction, navigate,
 }) => (
   <div className="card">
     <img src={img} alt="Image Error" />
@@ -12,13 +12,15 @@ const Card = ({
     <h3>{price}</h3>
 
     <div>
-      <button className="card_button button">Edit</button>
-      <button className="card_button button" onClick={() => {
-        axios.delete(`/api/v1/product?id=${id}`)
-          .catch(() => axios.delete(`http://localhost:3001/api/v1/product?id=${id}`))
-          .then((res) => res.data)
-          .then((products) => updateProducts(products));
-      }
+      <button className="card_button button" onClick={() => navigate(`/addproduct/${id}`)}>Edit</button>
+      <button className="card_button button" onClick={() => confirmSetAction(
+        () => {
+          axios.delete(`/api/v1/product?id=${id}`)
+            .catch(() => axios.delete(`http://localhost:3001/api/v1/product?id=${id}`))
+            .then((res) => res.data)
+            .then((products) => updateProducts(products));
+        },
+      )
       }>Delete</button>
     </div>
   </div>
@@ -31,6 +33,9 @@ Card.propTypes = {
   category: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   updateProducts: PropTypes.func.isRequired,
+  confirmSetAction: PropTypes.func.isRequired,
+  navigate: PropTypes.func.isRequired,
+
 };
 
 export default Card;
