@@ -16,7 +16,7 @@ app.use(compression());
 app.use('/api/v1/product', router);
 
 // const { NODE_ENV } = process.env;
-
+console.log(join(__dirname, '..', 'client', 'build'));
 // if (NODE_ENV === 'production') {
 app.use(express.static(join(__dirname, '..', 'client', 'build')));
 app.get('*', serveRoot);

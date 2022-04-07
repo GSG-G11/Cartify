@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nodemon src/index.js",
     "start": "node src/index.js",
-    "test": "cross-env NODE_ENV=test jest --detectOpenHandles"
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles",
+    "heroku-postbuild": "cd client && npm i && npm run build"
   },
   "repository": {
     "type": "git",
