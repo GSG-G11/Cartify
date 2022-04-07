@@ -64,8 +64,6 @@ class Home extends React.Component {
         <div>
       <img className='img-header' src={header}/>
       <div className='centered'>
-      <h5>Cartify</h5>
-
       </div>
 
         </div>
