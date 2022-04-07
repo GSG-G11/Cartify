@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from './Home/Card.jsx';
 
 const Cart = ({
-  isLoading, cart, updateCart, confirmSetAction,
+  isLoading, cart, updateCart, confirmSetAction, notificationSetMsg,
 }) => (isLoading ? <div>loading</div> : (
       <div>
 
@@ -23,6 +23,7 @@ const Cart = ({
               cart={cart}
               updateCart={updateCart}
               confirmSetAction={confirmSetAction}
+              notificationSetMsg={notificationSetMsg}
             />
           ))}
 
@@ -40,5 +41,6 @@ Cart.propTypes = {
   cart: PropTypes.array.isRequired,
   updateCart: PropTypes.func.isRequired,
   confirmSetAction: PropTypes.func,
+  notificationSetMsg: PropTypes.func.isRequired,
 };
 export default Cart;

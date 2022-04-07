@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 const Card = ({
-  id, img, title, category, price, description, cart, updateCart, confirmSetAction,
+  id, img, title, category, price, description, cart,
+  updateCart, confirmSetAction, notificationSetMsg,
 }) => {
   const navigate = useNavigate();
 
@@ -33,11 +34,13 @@ const Card = ({
           category,
         });
         updateCart(cart);
+        notificationSetMsg('Item Added');
       }} >
       Add to Cart
     </button> : <button className="card-btn-delete" onClick={() => {
       confirmSetAction(() => {
         updateCart(cart.filter((item) => item.id !== id));
+        notificationSetMsg('Item Removed');
       });
     }}>Remove From Cart</button>}
 
@@ -54,6 +57,7 @@ Card.propTypes = {
   cart: PropTypes.array.isRequired,
   updateCart: PropTypes.func.isRequired,
   confirmSetAction: PropTypes.func.isRequired,
+  notificationSetMsg: PropTypes.func.isRequired,
 
 };
 

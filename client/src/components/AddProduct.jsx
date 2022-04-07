@@ -19,7 +19,9 @@ class AddProductClass extends React.Component {
   };
 
   handleSubmit = (e) => {
-    const { navigate, id, updateProducts } = this.props;
+    const {
+      navigate, id, updateProducts, notificationSetMsg,
+    } = this.props;
     e.preventDefault();
     if (id) {
       axios.patch('/api/v1/product', {
@@ -32,13 +34,15 @@ class AddProductClass extends React.Component {
         }))
         .then((res) => res.data)
         .then((products) => updateProducts(products))
-        .then(() => navigate('/product'));
+        .then(() => navigate('/product'))
+        .then(() => notificationSetMsg('Product Edited Successfully'));
     } else {
       axios.post('/api/v1/product', this.state)
         .catch(() => axios.post('http://localhost:3001/api/v1/product', this.state))
         .then((res) => res.data)
         .then((products) => updateProducts(products))
-        .then(() => navigate('/product'));
+        .then(() => navigate('/product'))
+        .then(() => notificationSetMsg('New Product Added Successfully'));
     }
   };
 
@@ -106,5 +110,6 @@ AddProductClass.propTypes = {
   navigate: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   products: PropTypes.array,
+  notificationSetMsg: PropTypes.func.isRequired,
 };
 export default AddProduct;

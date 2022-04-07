@@ -5,18 +5,19 @@ import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
 const Card = ({
-  img, title, category, price, id, updateProducts, confirmSetAction, navigate,
+  img, title, category, price, id, updateProducts, confirmSetAction, navigate, notificationSetMsg,
 }) => (
   <div className="card">
     <div className='icons'>
 
       <EditOutlined className='icon' onClick={() => navigate(`/addproduct/${id}`)} />
-      <DeleteOutlined oonClick={() => confirmSetAction(
+      <DeleteOutlined onClick={() => confirmSetAction(
         () => {
           axios.delete(`/api/v1/product?id=${id}`)
             .catch(() => axios.delete(`http://localhost:3001/api/v1/product?id=${id}`))
             .then((res) => res.data)
-            .then((products) => updateProducts(products));
+            .then((products) => updateProducts(products))
+            .then(() => notificationSetMsg('Item Removed'));
         },
       )
       } className='icon' />
@@ -41,7 +42,7 @@ Card.propTypes = {
   updateProducts: PropTypes.func.isRequired,
   confirmSetAction: PropTypes.func.isRequired,
   navigate: PropTypes.func.isRequired,
-
+  notificationSetMsg: PropTypes.func.isRequired,
 };
 
 export default Card;

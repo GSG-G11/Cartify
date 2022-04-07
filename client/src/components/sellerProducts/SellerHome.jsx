@@ -61,7 +61,9 @@ class SellerHome extends React.Component {
   };
 
   render() {
-    const { updateProducts, confirmSetAction, navigate } = this.props;
+    const {
+      updateProducts, confirmSetAction, navigate, notificationSetMsg,
+    } = this.props;
     return (
       <div>
         <section className="header_section-home">
@@ -148,6 +150,7 @@ class SellerHome extends React.Component {
           updateProducts={updateProducts}
           confirmSetAction={confirmSetAction}
           navigate={navigate}
+          notificationSetMsg={notificationSetMsg}
         />
 
       </div>
@@ -179,6 +182,7 @@ SellerHome.propTypes = {
   navigate: PropTypes.func.isRequired,
   updateProducts: PropTypes.func.isRequired,
   confirmSetAction: PropTypes.func.isRequired,
+  notificationSetMsg: PropTypes.func.isRequired,
 };
 
 export default SellerHomeFun;
