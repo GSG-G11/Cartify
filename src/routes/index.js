@@ -6,7 +6,7 @@ const {
   getProducts,
 } = require('../controllers');
 
-router.route('/api/v1/product').get(getProducts).post(addProduct).delete(deleteProduct)
+router.route('/').get(getProducts).post(addProduct).delete(deleteProduct)
   .patch(editProduct);
 router.use(notFound);
 router.use(serverError);
