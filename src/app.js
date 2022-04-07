@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(compression());
 
-app.use(router);
+app.use('/api/v1/product', router);
 
 const { NODE_ENV } = process.env;
 
