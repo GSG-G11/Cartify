@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Notification.css';
 
 class Notification extends Component {
-  componentDidMount() {
+  componentDidUpdate() {
     const {
       isOpen, off, duration,
     } = this.props;

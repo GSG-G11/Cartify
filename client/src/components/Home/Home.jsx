@@ -56,7 +56,9 @@ class Home extends React.Component {
   };
 
   render() {
-    const { cart, updateCart, confirmSetAction } = this.props;
+    const {
+      cart, updateCart, confirmSetAction, notificationSetMsg,
+    } = this.props;
     return (
       <div>
         <div>
@@ -157,6 +159,7 @@ class Home extends React.Component {
         cart={cart}
         updateCart={updateCart}
         confirmSetAction={confirmSetAction}
+        notificationSetMsg={notificationSetMsg}
         list={this.filterItems()} />
       </div>
     );
@@ -175,6 +178,8 @@ Home.propTypes = {
   cart: PropTypes.array.isRequired,
   updateCart: PropTypes.func.isRequired,
   confirmSetAction: PropTypes.func.isRequired,
+  notificationSetMsg: PropTypes.func.isRequired,
+
 };
 
 export default Home;

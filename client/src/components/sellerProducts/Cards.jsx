@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from './Card.jsx';
 
 const Cards = ({
-  list, updateProducts, confirmSetAction, navigate,
+  list, updateProducts, confirmSetAction, navigate, notificationSetMsg,
 }) => (
   <section className="landscape">
     {
@@ -21,6 +21,7 @@ const Cards = ({
         updateProducts={updateProducts}
         confirmSetAction={confirmSetAction}
         navigate={navigate}
+        notificationSetMsg={notificationSetMsg}
         />
       ))
     }
@@ -33,6 +34,7 @@ Cards.propTypes = {
   updateProducts: PropTypes.func.isRequired,
   confirmSetAction: PropTypes.func.isRequired,
   navigate: PropTypes.func.isRequired,
+  notificationSetMsg: PropTypes.func.isRequired,
 };
 
 export default Cards;

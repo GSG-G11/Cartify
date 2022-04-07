@@ -31,6 +31,10 @@ class App extends Component {
     this.setState({ notification: { isOpen: false } });
   };
 
+  notificationSetMsg = (msg) => {
+    this.setState({ notification: { isOpen: true, msg } });
+  };
+
   confirmToggle = () => {
     this.setState({ confirm: { isOpen: !this.state.confirm.isOpen } });
   };
@@ -73,18 +77,23 @@ class App extends Component {
           cart={cart}
           updateCart={this.updateCart}
           confirmSetAction={this.confirmSetAction}
+          notificationSetMsg={this.notificationSetMsg}
           />}></Route>
-          <Route path="/login" element={<LoginFunc />}></Route>
+          <Route path="/login"
+          notificationSetMsg={this.notificationSetMsg}
+          element={<LoginFunc />}></Route>
           <Route path="/product" element={
           <SellerHomeFun
           isLoading={isLoading}
           products={products}
+          notificationSetMsg={this.notificationSetMsg}
           updateProducts={this.updateProducts}
           confirmSetAction={this.confirmSetAction}
           />}></Route>
           <Route path="/" element={
 
           <Home
+          notificationSetMsg={this.notificationSetMsg}
           isLoading={isLoading}
           cart={cart}
           updateCart={this.updateCart}
@@ -92,6 +101,8 @@ class App extends Component {
            products={products} />}></Route>
           <Route path="/addproduct/:id" element={
           <AddProduct
+          notificationSetMsg={this.notificationSetMsg}
+          confirmSetAction={this.confirmSetAction}
           products={products}
           updateProducts={this.updateProducts}
           />}></Route>
@@ -102,7 +113,7 @@ class App extends Component {
       <Notification isOpen={notification.isOpen}
         msg={notification.msg}
         off={this.notificationClose}
-        duration={1}
+        duration={2}
         />
       <Confirm isOpen={confirm.isOpen}
        action={this.state.confirm.action}
