@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Cards from './Cards.jsx';
 
-const header = require('../../image/header.png');
-
 class Home extends React.Component {
   state = {
     categoryFilter: '',
@@ -62,7 +60,6 @@ class Home extends React.Component {
     return (
       <div>
         <div>
-      <img className='img-header' src={header}/>
       <div className='centered'>
       </div>
 
