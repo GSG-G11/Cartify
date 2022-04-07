@@ -18,7 +18,7 @@ app.use('/api/v1/product', router);
 const { NODE_ENV } = process.env;
 
 if (NODE_ENV === 'production') {
-  app.use(express.static(join(__dirname, '..', 'client', 'bulid')));
+  app.use(express.static(join(__dirname, '..', 'client', 'build')));
   app.get('*', serveRoot);
 }
 
